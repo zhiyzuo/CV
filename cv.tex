@@ -1,0 +1,372 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vedic Nerd - Resume LaTeX Template
+%
+% Original author:
+% Ganesh Mohan (http://about.me/ganesh.mohan)
+%
+% Github repository:
+% https://github.com/ganesh2shiv/resume-latex-template
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=cyan,
+    urlcolor=cyan,
+}
+
+\usepackage{times}
+\usepackage{enumitem}
+
+\usepackage[
+    backend=biber,
+    maxbibnames=10,
+    style=numeric,
+    sorting=ydnt,
+    defernumbers
+]{biblatex}
+
+\setlength\bibitemsep{0.5\baselineskip}
+
+\addbibresource{pub.bib}
+%\addbibresource[label=journal]{pub-journal.bib}
+%\addbibresource[label=conference]{pub-conference.bib}
+%\AtBeginBibliography{\footnotesize}
+
+\makeatletter
+\patchcmd{\blx@printbibliography}
+  {\blx@bibliography\blx@tempa}
+  {\setcounter{bibitemcnt}{0}%
+   \begingroup
+   \def\do##1{\stepcounter{bibitemcnt}}%
+   \dolistloop{\blx@tempa}%
+   \endgroup
+   \blx@bibliography\blx@tempa}{}{}
+\makeatother
+
+\newcounter{bibitemcnt}
+\newrobustcmd*{\mkbibdescending}[1]{%
+  \number\numexpr\value{bibitemcnt}+1-#1\relax}
+\DeclareFieldFormat{labelnumber}{\mkbibdescending{#1}}
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{\printfield{labelprefix}.\printfield{labelnumber}}}
+     {}%
+      \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
+
+  
+\AtBeginBibliography{\small}
+
+% reduce reference spacing
+\renewcommand*{\bibfont}{\normalfont\normalsize\linespread{0.3}\selectfont}
+
+% DEFINITIONS FOR RESUME
+
+%\textheight=10in
+\pagestyle{fancy}
+\raggedright
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\setlength{\hoffset}{-2pt}
+\setlength{\footskip}{20pt}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+\newcommand{\contact}[3]{
+\vspace*{5pt}
+\begin{center}
+{\LARGE \scshape {#1}}\\
+\vspace{3pt}
+#2 
+\vspace{2pt}
+#3
+\end{center}
+\vspace*{-8pt}
+}
+
+\newcommand{\header}[1]{{
+\hspace*{-15pt}\vspace*{6pt} \textbf{\textsc{\large{#1}}}} \vspace*{-6pt} 
+\lineunder
+}
+
+\newcommand{\lineunder}{
+\vspace*{-8pt} \\ \hspace*{-15pt} 
+\hrulefill \\
+}
+
+\newcommand{\content}{
+\vspace*{2pt}%
+}
+
+\newcommand{\college}[5]{\vspace*{2pt}% 
+\textbf{#1} \labelitemi #2 \labelitemi #3 \hfill #4 \\ #5 
+\vspace*{5pt}
+}
+
+\newcommand{\school}[4]{
+\textbf{#1} \labelitemi #2 \hfill #3 \\ #4 \vspace*{5pt}
+}
+
+\newcommand{\employer}[4]{{
+\vspace*{2pt}%
+\textbf{#1} #2 \hfill #3\\ #4 \vspace*{2pt}}
+}
+
+\newcommand{\project}[4]{{
+\vspace*{2pt}% 
+\textbf{#1} #2 \hfill #3\\ \textit{#4} \vspace*{2pt}}
+}
+
+\renewcommand{\labelitemi}{
+$\vcenter{\hbox{\tiny$\bullet$}}$\hspace*{3pt}
+}
+
+\renewcommand{\labelitemii}{
+$\vcenter{\hbox{\tiny$\bullet$}}$\hspace*{-3pt}
+}
+
+\newenvironment{bullet-list-major}{
+\begin{list}{\labelitemii}{\setlength\leftmargin{3pt} 
+\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}\end{list}
+}
+
+\newenvironment{bullet-list-minor}{
+\begin{list}{\labelitemii}{\setlength\leftmargin{15pt} 
+\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}\end{list}
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+%\cfoot{
+%Last updated: July 7, 2018
+%}
+
+\rfoot{
+Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
+}
+
+% END RESUME DEFINITIONS
+
+\begin{document}
+
+\small
+\smallskip
+\vspace*{-44pt}
+
+\contact{Zhiya Zuo}
+{\href{mailto:zhiya-zuo@uiowa.edu}{zhiya-zuo@uiowa.edu} \labelitemi \href{https://zhiyzuo.github.io}{zhiyzuo.github.io}\\}
+{S343 Pappajohn Business Building \labelitemi
+ Tippie College of Business \\
+ University of Iowa \labelitemi
+ Iowa City, IA 52242\\% Address
+}
+
+%%%%%%%%%%%%% research interest %%%%%%%%%%%%%
+\vspace{15pt}
+\header{Research interest}
+\begin{bullet-list-major}
+    \item \textsc{Topics}: teamwork, hiring, business analytics, data science, social and business networks
+    \item \textsc{Methodologies}: data/text mining, network analysis, statistical model, agent-based modeling
+\end{bullet-list-major}
+
+%%%%%%%%%%%%% education %%%%%%%%%%%%%
+\vspace*{4pt}%
+\header{Education}
+    \employer{Ph.D. candidate}{-- Information Science}{Aug. 2014 -- May 2019 (Expected)}{Interdisciplinary Graduate Program in Informatics, University of Iowa, Iowa City, IA}
+	\begin{bullet-list-minor}
+    	\item Thesis: Investigating Research Collaboration with Large-Scale Scholarly Data
+        \item Advisor: \href{www.kangzhao.net}{Dr. Kang Zhao}
+        \item Committee: Dr. Nick Street, Dr. Chaoqun Ni, Dr. David Eichmann, and Dr. Patrick Barlow
+    \end{bullet-list-minor}
+    
+    \employer{Summer School}{-- Complex Systems}{Jun. 2017 -- Jul. 2017}{Santa Fe Institute, Santa Fe, NM}
+	\begin{bullet-list-minor}
+    	\item Training and research on complex systems
+        \item Project 1: Behavioral footprints of depression from mobile-phone usage patterns 
+        \item Project 2: Hops across cultural boundaries: a regional analysis of beer recipe ingredients and their pairing principles
+    \end{bullet-list-minor}
+    
+    \employer{B.E.}{-- Automation}{Sept. 2010 -- Jun. 2014}{Department of Control Science \& Engineering, Tongji University, Shanghai, China}
+	\begin{bullet-list-minor}
+    	\item Thesis: \textsc{HealthMgr}: An Android Application for Health Self-management
+        \item Advisor: \href{http://www.ndctcm.cn/gzli/}{Dr. Guo-Zheng Li}
+    \end{bullet-list-minor}
+    
+%%%%%%%%% Research experience %%%%%%%%%%%%%%
+\vspace*{4pt}
+\header{Research and Professional Experience}
+    \employer{Statistical Consultant}{-- Iowa Social Science Research Center}{Jan. 2017 -- \textit{Current}}{University of Iowa, Iowa City, IA}
+    \vspace*{4pt}
+
+    \employer{Visiting Research Assistant}{-- Information Sciences Institute}{May 2018 -- Aug. 2018}{University of Southern California, Marina Del Rey, CA}
+	\begin{bullet-list-minor}
+        \item Supervisor: \href{www.isi.edu/~lerman/}{Dr. Kristina Lerman}
+    \end{bullet-list-minor}
+    
+    \employer{Undergraduate Research Assistant}{-- LeVis Group}{Sept. 2012 -- Jun. 2014}{Tongji University, Shanghai, China}
+	\begin{bullet-list-minor}
+        \item Mining traditional Chinese medicine data
+    \end{bullet-list-minor}
+    
+%%%%%%%%% teaching experience %%%%%%%%%%%%%%
+\vspace*{4pt}
+\header{Teaching Experience}
+    \employer{Lab Instructor \& Teaching Assistant}{-- Department of Management Sciences}{Aug. 2016 -- \textit{Current}}{University of Iowa, Iowa City, IA}
+	\begin{bullet-list-minor}
+        \item {\href{https://myui.uiowa.edu/my-ui/courses/dashboard.page?q.courseSubject=MSCI&q.courseNumber=3250&showResults=1}{MSCI:3250 Analyzing Data for Business Intelligence}}
+    \end{bullet-list-minor}
+    
+    \employer{Workshop Instructor}{-- Iowa Social Science Research Center}{Jan. 2017 -- \textit{Current}}{University of Iowa, Iowa City, IA}
+	\begin{bullet-list-minor}
+        \item \href{https://github.com/zhiyzuo/python-tutorial}{Python Workshops}
+    \end{bullet-list-minor}
+    
+    \employer{Teaching Assistant}{-- Complexity Explorer}{Apr. 2018 -- Jun. 2018}{Sante Fe Institute, Santa Fe, NM}
+	\begin{bullet-list-minor}
+        \item Teaching assistant to \href{https://www.complexityexplorer.org/challenges/2-spring-2018-complexity-challenge}{Spring 2018 Complexity Challenge}
+    \end{bullet-list-minor}
+    
+    
+%%%%%%%%% journal %%%%%%%%%%%%%%
+\vspace*{4pt}%
+\header{Journal Papers}
+
+\nocite{*}
+\newrefcontext[labelprefix=J]
+\emergencystretch=3em
+\printbibliography[heading=none,keyword={J}] 
+
+%%%%%%%%% conference %%%%%%%%%%%%%%
+\vspace*{4pt}%
+\header{Conference and Workshop Papers}
+
+\nocite{*}
+\newrefcontext[labelprefix=C]
+\emergencystretch=3em
+\printbibliography[keyword={C},heading=none] 
+
+%%%%%%%%% short papers %%%%%%%%%%%%%%
+\vspace*{4pt}%
+\header{Posters and Presentations}
+
+\nocite{*}
+\newrefcontext[labelprefix=S]
+\emergencystretch=3em
+\printbibliography[keyword={S},heading=none] 
+
+%%%%%%%%% work in progress %%%%%%%%%%%%%%
+\vspace*{4pt}%
+\header{Work in Progress}
+
+\nocite{*}
+\newrefcontext[labelprefix=M]
+\emergencystretch=3em
+\printbibliography[keyword=M,heading=none] 
+%
+%\begin{refsection}[conference]
+%    \nocite{*}
+%    \emergencystretch=3em
+%    %\newrefcontext[labelprefix=C]
+%    \printbibliography[heading=none,prefixnumbers=F]
+%\end{refsection}
+
+%\vspace*{4pt}
+%\header{Presentations/Posters}
+
+%\nocite{*}
+%\newrefcontext[labelprefix={P}]
+%\emergencystretch=3em
+%\printbibliography[keyword=P,heading=none] 
+
+%%%%%%%%%%%% awards %%%%%%%%%%%%
+\vspace*{4pt}
+\header{honors and awards}
+\begin{bullet-list-major}
+    \item \href{https://github.com/zhiyzuo/ic2s2_datathon/blob/master/datathon.pdf}{Datathon Winner} at the \textit{4th Annual International Conference on Computational Social Science} (2018)
+    %%
+    \item \href{https://bitbucket.org/zhiyzuo/complexity-challenge/src/master/}{Honorable Mention} at the \textit{Launch of the Complexity Challenges} (2017) \\
+    Santa Fe Institute and Mitre Corporation
+    %%
+    \item Graduate Fellowship (2014-2016) \\
+    Iowa Informatics Initiative, University of Iowa
+    %%
+    \item Outstanding Student Scholarship (2011 and 2013) \\
+    College  of  Electronics  and  Information  Engineering, Tongji  University
+    %%
+    \item 3rd Place at Undergraduate Mathematical Contest in Modeling (2013) \\
+    School of Mathematical Sciences, Tongji University
+    %%
+    \item 2nd Place at Undergraduate Electronic Design Contest (2012) \\
+    College of Electronics and Information Engineering, Tongji University
+    \item 3rd Place at China Contemporary Undergraduate Mathematical Contest in Modeling (2012) \\
+    China Society for Industrial and Applied Mathematics
+\end{bullet-list-major}
+
+%%%%%%%%%%%% prorfessional %%%%%%%%%%%%
+\vspace*{4pt}
+\header{Professional Service}
+
+\begin{bullet-list-major}
+  \item [\hspace{10pt}\textsc{\normalsize{Conference Reviewer}}]
+  \item ACM Special Interest Group on Knowledge Discovery and Data Mining (SIGKDD)
+    \item China Summer Workshop on Information Management (CSWIM)
+  \item Conference on Information Systems and Technology (CIST)
+  \item Hawaii International Conference on System Sciences (HICSS)
+  \item INFORMS Workshop on Data Science
+  \item International Conference on Information (iConference)
+  \item International Conference on Information Systems (ICIS)
+  \item International Conference on Smart Health (ICSH)
+  \item International Conference on Social Computing, Behavioral-Cultural Modeling, Prediction and Behavior Representation in Modeling and Simulation (SBP-BRiMS)
+  \item Pacific Asia Conference on Information Systems (PACIS)
+  \item Workshop on Information Technology and Systems (WITS)
+  \item WWW Workshop on Big Scholarly Data (BigScholar)
+\end{bullet-list-major}
+%---------------
+\begin{bullet-list-major}
+    \item [\hspace{10pt}\textsc{\normalsize{Journal Reviewer}}]
+    \item Computers in Biology and Medicine
+    \item Electronic Commerce Research
+    \item IEEE Transactions on Emerging Topics in Computing. Special Issue: \textit{Scholarly Big Data}
+    \item Journal of Operations Management
+    \item Journal of the Association for Information Science and Technology
+\end{bullet-list-major}
+%---------------
+\begin{bullet-list-major}
+    \item [\hspace{10pt}\textsc{\normalsize{Program Committee}}]
+    \item Workshop on Information Technologies \& Systems (WITS): 2019
+    \item INFORMS Workshop on Data Science: 2019
+    \item International Conference for Smart Health (ICSH): 2018, 2019
+\end{bullet-list-major}
+
+\vspace*{4pt}
+\header{Professional Membership}
+\begin{bullet-list-major}
+\item Association for Information Science and Technology (ASIS\&T)
+\item Institute for Operations Research and the Management Sciences (INFORMS)
+\end{bullet-list-major}
+
+
+\end{document}
