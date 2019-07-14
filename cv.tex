@@ -81,6 +81,22 @@
 \raggedright
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
+\rfoot{
+\small{Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$}
+}
+
+\fancypagestyle{firstpage}{% a rule at the bottom
+    \raggedright
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \cfoot{
+        \small{Last updated: 14th July 2019.}
+    }
+    \rfoot{
+        \small{Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$}
+    }
+}
+
 
 \setlength{\hoffset}{-2pt}
 \setlength{\footskip}{20pt}
@@ -164,10 +180,6 @@ $\vcenter{\hbox{\tiny$\bullet$}}$\hspace*{-3pt}
 %Last updated: July 7, 2018
 %}
 
-\rfoot{
-Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
-}
-
 % END RESUME DEFINITIONS
 
 \begin{document}
@@ -177,12 +189,14 @@ Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
 \vspace*{-44pt}
 
 \contact{Zhiya Zuo}
-{\href{mailto:zhiyazuo@gmail.com}{zhiyazuo@gmail.com} \labelitemi \href{https://zhiyzuo.github.io}{https://zhiyzuo.github.io}\\}
-{S343 Pappajohn Business Building \labelitemi
- Tippie College of Business \\
- University of Iowa \labelitemi
- Iowa City, IA 52242\\% Address
+{\href{mailto:zhiyazuo@cityu.edu.hk}{zhiyazuo@cityu.edu.hk} \labelitemi \href{https://zhiyzuo.github.io}{https://zhiyzuo.github.io}\\}
+{Room 6-244, 6/F Lau Ming Wai Academic Building \labelitemi
+83 Tat Chee Avenue \\
+City University of Hong Kong \labelitemi 
+Hong Kong 
 }
+
+\thispagestyle{firstpage}
 
 %%%%%%%%%%%%% research interest %%%%%%%%%%%%%
 \vspace{15pt}
@@ -192,33 +206,13 @@ Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
     \item \textsc{Methodologies}: data/text mining, network analysis, statistical model, agent-based modeling
 \end{bullet-list-major}
 
-%%%%%%%%%%%%% education %%%%%%%%%%%%%
-\vspace*{4pt}%
-\header{Education}
-    \employer{Ph.D. candidate}{-- Information Science}{Aug. 2014 -- May 2019 (Expected)}{Interdisciplinary Graduate Program in Informatics, University of Iowa, Iowa City, IA}
-	\begin{bullet-list-minor}
-    	\item Thesis: Investigating Research Collaboration with Large-Scale Scholarly Data
-        \item Advisor: \href{www.kangzhao.net}{Dr. Kang Zhao}
-        \item Committee: Dr. Nick Street, Dr. Chaoqun Ni, Dr. David Eichmann, and Dr. Patrick Barlow
-    \end{bullet-list-minor}
-    
-    \employer{Summer School}{-- Complex Systems}{Jun. 2017 -- Jul. 2017}{Santa Fe Institute, Santa Fe, NM}
-	\begin{bullet-list-minor}
-    	\item Training and research on complex systems
-        \item Project 1: Behavioral footprints of depression from mobile-phone usage patterns 
-        \item Project 2: Hops across cultural boundaries: a regional analysis of beer recipe ingredients and their pairing principles
-    \end{bullet-list-minor}
-    
-    \employer{B.E.}{-- Automation}{Sept. 2010 -- Jun. 2014}{Department of Control Science \& Engineering, Tongji University, Shanghai, China}
-	\begin{bullet-list-minor}
-    	\item Thesis: \textsc{HealthMgr}: An Android Application for Health Self-management
-        \item Advisor: \href{http://www.ndctcm.cn/gzli/}{Dr. Guo-Zheng Li}
-    \end{bullet-list-minor}
-    
 %%%%%%%%% Research experience %%%%%%%%%%%%%%
 \vspace*{4pt}
 \header{Research and Professional Experience}
-    \employer{Statistical Consultant}{-- Iowa Social Science Research Center}{Jan. 2017 -- \textit{Current}}{University of Iowa, Iowa City, IA}
+    \employer{Assistant Professor}{-- Dept. of Information Systems}{June 2019 -- \textit{Current}}{College of Business, City University of Hong Kong}
+    \vspace*{4pt}
+    
+    \employer{Statistical Consultant}{-- Iowa Social Science Research Center}{Jan. 2017 -- May 2019}{University of Iowa, Iowa City, IA}
     \vspace*{4pt}
 
     \employer{Visiting Research Assistant}{-- Information Sciences Institute}{May 2018 -- Aug. 2018}{University of Southern California, Marina Del Rey, CA}
@@ -231,6 +225,28 @@ Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
         \item Mining traditional Chinese medicine data
     \end{bullet-list-minor}
     
+   
+\vspace*{4pt}%
+\header{Education}
+    \employer{Ph.D. candidate}{-- Information Science}{Aug. 2014 -- Aug. 2019}{Interdisciplinary Graduate Program in Informatics, University of Iowa, Iowa City, IA}
+	\begin{bullet-list-minor}
+    	\item Thesis: Investigating Research Collaboration with Large-Scale Scholarly Data
+        \item Advisor: \href{www.kangzhao.net}{Dr. Kang Zhao}
+        \item Committee: Dr. Nick Street, Dr. Chaoqun Ni, Dr. David Eichmann, and Dr. Patrick Barlow
+    \end{bullet-list-minor}
+    
+    \employer{Summer School}{-- Complex Systems}{Jun. 2017 -- Jul. 2017}{Santa Fe Institute, Santa Fe, NM}
+	\begin{bullet-list-minor}
+    	\item Training and research on complex systems
+        %\item Project 1: Behavioral footprints of depression from mobile-phone usage patterns 
+        %\item Project 2: Hops across cultural boundaries: a regional analysis of beer recipe ingredients and their pairing principles
+    \end{bullet-list-minor}
+    
+    \employer{B.E.}{-- Automation}{Sept. 2010 -- Jun. 2014}{Department of Control Science \& Engineering, Tongji University, Shanghai, China}
+	\begin{bullet-list-minor}
+    	\item Thesis: \textsc{HealthMgr}: An Android Application for Health Self-management
+        \item Advisor: \href{http://www.ndctcm.cn/gzli/}{Dr. Guo-Zheng Li}
+    \end{bullet-list-minor}
     
 %%%%%%%%% journal %%%%%%%%%%%%%%
 \vspace*{4pt}%
@@ -310,12 +326,12 @@ Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
 %%%%%%%%% teaching experience %%%%%%%%%%%%%%
 \vspace*{4pt}
 \header{Teaching Experience}
-    \employer{Lab Instructor \& Teaching Assistant}{-- Department of Management Sciences}{Aug. 2016 -- \textit{Current}}{University of Iowa, Iowa City, IA}
+    \employer{Lab Instructor \& Teaching Assistant}{-- Department of Management Sciences}{Aug. 2016 -- May 2019}{University of Iowa, Iowa City, IA}
 	\begin{bullet-list-minor}
         \item {\href{https://myui.uiowa.edu/my-ui/courses/dashboard.page?q.courseSubject=MSCI&q.courseNumber=3250&showResults=1}{MSCI:3250 Analyzing Data for Business Intelligence}}
     \end{bullet-list-minor}
     
-    \employer{Workshop Instructor}{-- Iowa Social Science Research Center}{Jan. 2017 -- \textit{Current}}{University of Iowa, Iowa City, IA}
+    \employer{Workshop Instructor}{-- Iowa Social Science Research Center}{Jan. 2017 -- May 2019}{University of Iowa, Iowa City, IA}
 	\begin{bullet-list-minor}
         \item \href{https://github.com/zhiyzuo/python-tutorial}{Python Workshops}
     \end{bullet-list-minor}
@@ -358,7 +374,7 @@ Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
 \end{bullet-list-major}
 %---------------
 \begin{bullet-list-major}
-    \item [\hspace{10pt}\textsc{\normalsize{Program Committee}}]
+    \item [\hspace{10pt}\textsc{\normalsize{Program Committee Membership}}]
     \item INFORMS Workshop on Data Science: 2019
     \item International Conference for Smart Health (ICSH): 2018, 2019
     \item Workshop on Information Technologies \& Systems (WITS): 2019
@@ -367,7 +383,7 @@ Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
 \vspace*{4pt}
 \header{Professional Membership}
 \begin{bullet-list-major}
-\item Association for Information Science and Technology (ASIS\&T)
+%\item Association for Information Science and Technology (ASIS\&T)
 \item Institute for Operations Research and the Management Sciences (INFORMS)
 \end{bullet-list-major}
 
